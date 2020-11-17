@@ -4,6 +4,7 @@ const plus = document.getElementById("plus");
 const heart = document.getElementById("heart");
 const pause = document.getElementById("pause");
 const submit = document.getElementById("submit");
+const form = document.getElementById("comment-form");
 
 const likes = document.querySelector("ul.likes");
 const comments = document.getElementById("list");
@@ -65,14 +66,11 @@ pause.addEventListener('click', function(e) {
     }
 });
 
-submit.addEventListener('click', function(e) {
+form.addEventListener('submit', function(e) {
     const input = document.getElementById("comment-input").value;
-    if (input != "") {
-        const p = document.createElement("p");
-        p.innerText = input;
-        comments.appendChild(p);
-        e.preventDefault();
-        document.getElementById("comment-input").value = "";
-    }
+    const p = document.createElement("p");
+    p.innerText = input;
+    comments.appendChild(p);
+    e.preventDefault();
+    document.getElementById("comment-input").value = "";
 });
-
